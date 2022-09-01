@@ -1,0 +1,22 @@
+{
+  "name": "mehedi/alfa-contact-manager",
+  "description": "It is contact manager plugin",
+  "type": "project",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "mehedi hasan",
+      "email": "mahedicsit@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Alfa\\Inc\\": "inc/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
