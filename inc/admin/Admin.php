@@ -18,6 +18,13 @@ class Admin
             wp_enqueue_style('alfa-custom-admin-css', ALFA_API_PLUGIN_URL.'assets/css/custom-admin.css');
         }
 
+        if( 'admin_page_add_contact'===$page ) 
+        {
+            wp_enqueue_style('jquery-ccpicker-css', ALFA_API_PLUGIN_URL.'assets/css/jquery.ccpicker.css');
+            wp_enqueue_script('jquery-ccpicker-js', ALFA_API_PLUGIN_URL.'assets/js/jquery.ccpicker.js',[], '1.0', true);
+            wp_enqueue_script('admin-custom-js', ALFA_API_PLUGIN_URL.'assets/js/admin-custom.js', [], '1.0', true);
+        }
+
     }
 
     public function alfa_custom_admin_menu() 
@@ -38,17 +45,21 @@ class Admin
 
     public function alfa_persons_admin_cb()
     {
+        $allcontacts= Peoples::alfa_get_peoples();
         require ALFA_API_PLUGIN_PATH.'inc/templates/ContactsTable.php';
     }
 
     public function alfa_add_people_cb()
     {
         require ALFA_API_PLUGIN_PATH.'inc/templates/AddPeopleForm.php';
+        $addPeople=new AddPeople();
+        $addPeople->alfa_insert_user_to_database($_POST);
     }
 
     public function alfa_add_contact_cb()
     {
         require ALFA_API_PLUGIN_PATH.'inc/templates/AddContactForm.php';
+
     }
 
 }
