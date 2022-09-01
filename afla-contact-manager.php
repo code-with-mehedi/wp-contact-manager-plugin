@@ -29,3 +29,19 @@ if(!defined('ALFA_API_PLUGIN_PATH')){
 if(file_exists(ALFA_API_PLUGIN_PATH . 'vendor/autoload.php')){
     require_once ALFA_API_PLUGIN_PATH . 'vendor/autoload.php';
 }
+
+use Alfa\Inc\DB;
+use Alfa\Inc\admin\Admin;
+
+new Admin();
+
+// Create tables on plugin activation
+register_activation_hook( __FILE__, "alfacm_activate" );
+
+// Activate Plugin
+function alfacm_activate() {
+
+	// Insert DB Tables
+	DB::createContactsTables();
+
+}
