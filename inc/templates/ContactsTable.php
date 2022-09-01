@@ -1,3 +1,15 @@
+<?php
+
+  if ( ! empty( $_GET['delete-id'] ) && $id = absint( $_GET['delete-id'] ) ) {
+
+    global $wpdb;
+    $table = $wpdb->prefix.'peoples';
+    $wpdb->delete( $table, array( 'id' => $id ) );
+    header("location: " . $_SERVER['REQUEST_URI']);
+  }
+
+?>
+
 <div class="alfa-contacts-tabel">
 
   <h3>Contacts</h3>

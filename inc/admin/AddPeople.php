@@ -18,8 +18,5 @@ class AddPeople
         $email    = $data['email']; //string value use: %s
         $sql = $wpdb->prepare("INSERT INTO `$tablename` (`name`, `email`) values (%s, %s)", $name, $email);
         $wpdb->query($sql);
-
-
-        
     }
 }
